@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAP's PNL Image Generator</title>
+  <style>
+    @font-face {
+            font-family: 'Forma DJR Display';
+            src: url('src/fonts/FormaDJRDisplay-Regular-Testing.ttf') format('truetype');
+			font-weight: 400;
+        }
+	@font-face {
+			font-family: 'Forma DJR Display';
+            src: url('src/fonts/FormaDJRDisplay-Bold-Testing.ttf') format('truetype');
+			font-weight: 700;
+		}
+	@font-face {
+			font-family: 'Forma DJR Display';
+            src: url('src/fonts/FormaDJRDisplay-Medium-Testing.ttf') format('truetype');
+			font-weight: 500;
+		}
+    body {
+      font-family: Forma DJR Display;
+      text-align: center;
+      margin: 20px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    canvas {
+      display: block;
+      margin: 20px auto;
+      <!--border: 1px solid #ddd;-->
+    }
+  </style>
+</head>
+<body>
+  <h1>TAP's PNL Image Generator</h1>
+  
+  <form id="pnlForm">
+	<label for="templateSelector">Select Template:</label>
+    <select id="templateSelector">
+      <option value="template_01.png">Template 01</option>
+      <option value="template_02.png">Template 02</option>
+	  <option value="template_03.png">Template 03</option>
+      <option value="template_04.png">Template 04</option>
+	  <option value="template_05.png">Template 05</option>
+      <option value="template_06.png">Template 06</option>
+	  <option value="template_07.png">Template 07</option>
+    </select>
+	
+	<label for="ticker">Ticker: </label>
+    <input type="text" id="ticker" placeholder="SANDUSDT" required>
+	
+    <label for="pnl">PnL (%): </label>
+    <input type="number" id="pnl" step="0.01" placeholder="28.78%" required>
+	
+	<br>
+	<br>
+
+	<label for="leverage">Leverage: </label>
+	
+	<label>
+        <input type="radio" name="leverageRadio" value="Short"> Short
+    </label>
+    <label>
+        <input type="radio" name="leverageRadio" value="Long" checked> Long
+    </label>
+	
+	<input type="number" id="leverage" placeholder="5" required>
+	
+	<label for="entry">Entry: </label>
+    <input type="number" id="entry" step="0.0001" placeholder="0.7136" required>
+	
+    <label for="exit">Exit: </label>
+    <input type="number" id="exit" step="0.0001" placeholder="0.7547" required>
+	
+	<br>
+	<br>
+	
+	<label for="username">Username: </label>
+    <input type="text" id="username" placeholder="notSILE" required>
+	
+    <button type="submit">Generate Image</button>
+  </form>
+  
+  <canvas id="canvas" width="1320" height="720"></canvas>
+  <a id="downloadLink" style="display: none;">Right Click on the Image Above to Download</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
